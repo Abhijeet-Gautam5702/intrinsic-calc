@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intrinsic Value Calculator</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>INTRINSIC VALUE CALCULATOR for stocks</h1>
+    </header>
+    <main>
+      <section id="user-input">
+        <label for="stock-name">
+          Name of the stock <input id="stock-name" type="text" />
+        </label>
+        <br />
+        <label for="no-of-shares">
+          No. of shares (in Cr) <input id="no-of-shares" type="tel" />
+        </label>
+        <br />
+        <label for="current-price"> Current price <input id="current-price" type="tel" /> </label>
+        <br />
+        <label for="earnings">
+          EBITDA of last 5 years (ascending order) <br />
+          <input type="tel" name="earning" /><br />
+          <input type="tel" name="earning" /><br />
+          <input type="tel" name="earning" /><br />
+          <input type="tel" name="earning" /><br />
+          <input type="tel" name="earning" />
+        </label>
+        <br />
+        <button id="submit-data" onclick="calculate()">Submit</button>
+      </section>
+      <section id="output">
+        <h1 id="heading"></h1>
+        <h2 id="CAGR"></h2>
+        <h2 id="intrinsic-val"></h2>
+        <h2 id="discount-perc"></h2>
+      </section>
+    </main>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
