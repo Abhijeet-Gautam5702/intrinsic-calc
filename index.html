@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
     <title>Intrinsic Value Calculator</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -14,31 +20,35 @@
     <main>
       <section id="user-input">
         <label for="stock-name">
-          Name of the stock <input id="stock-name" type="text" />
+          Name of the stock
+          <input id="stock-name" type="text" value="tata motors" />
         </label>
         <br />
         <label for="no-of-shares">
-          No. of shares (in Cr) <input id="no-of-shares" type="tel" />
+          No. of shares (in Cr)
+          <input id="no-of-shares" type="tel" value="346" />
         </label>
         <br />
-        <label for="current-price"> Current price <input id="current-price" type="tel" /> </label>
+        <label for="current-price">
+          Current price <input id="current-price" type="tel" value="345" />
+        </label>
         <br />
         <label for="earnings">
-          EBITDA of last 5 years (ascending order) <br />
-          <input type="tel" name="earning" /><br />
-          <input type="tel" name="earning" /><br />
-          <input type="tel" name="earning" /><br />
-          <input type="tel" name="earning" /><br />
-          <input type="tel" name="earning" />
+          EBITDA of last 5 years <br> (ascending order) <br />
+          <input type="tel" name="earning" value="1" /><br />
+          <input type="tel" name="earning" value="2" /><br />
+          <input type="tel" name="earning" value="3" /><br />
+          <input type="tel" name="earning" value="4" /><br />
+          <input type="tel" name="earning" value="5" />
         </label>
         <br />
         <button id="submit-data" onclick="calculate()">Submit</button>
       </section>
       <section id="output">
         <h1 id="heading"></h1>
-        <h2 id="CAGR"></h2>
-        <h2 id="intrinsic-val"></h2>
-        <h2 id="discount-perc"></h2>
+        <p id="CAGR"></p>
+        <p id="intrinsic-val"></p>
+        <p id="discount-perc"></p>
       </section>
     </main>
 

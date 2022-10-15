@@ -18,7 +18,7 @@ function calculate() {
   }
   let cagr = calculateCAGR(earnings);
   let year = 10,
-    bondRate = 0.072;
+    bondRate = 0.07446;
   let intrinsicVal = getIntrinsicVal(
     shares,
     currPrice,
@@ -29,14 +29,14 @@ function calculate() {
   );
   let discountPerc = getDiscountPerc(intrinsicVal, currPrice);
 
-  headingEl.textContent = stockName;
-  cagrEl.textContent = cagr;
-  intrinsicValEl.textContent = intrinsicVal;
-  discountPercEl.textContent = discountPerc;
+  headingEl.textContent = "STOCK: " + stockName;
+  cagrEl.textContent = "CAGR (last 5 years): " + (100*cagr).toFixed(2) + "%";
+  intrinsicValEl.textContent = "Intrinsic value (after 10 years): Rs." + (intrinsicVal).toFixed(2);
+  discountPercEl.textContent = "Discount (%):" + (100*discountPerc).toFixed(2) + "%";
 }
 
 function calculateCAGR(arr) {
-  let res = Math.pow(arr[arr.length - 1] / arr[0], 1 / arr.length) - 1;
+  let res = Math.pow((arr[arr.length - 1] / arr[0]), (1 / arr.length)) - 1;
   return res;
 }
 
