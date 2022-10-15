@@ -1,3 +1,4 @@
+let outputDataEl = document.getElementById("output-data");
 let cagrEl = document.getElementById("CAGR");
 let intrinsicValEl = document.getElementById("intrinsic-val");
 let discountPercEl = document.getElementById("discount-perc");
@@ -8,7 +9,20 @@ let stockNameEl = document.getElementById("stock-name");
 let sharesEl = document.getElementById("no-of-shares");
 let currPriceEl = document.getElementById("current-price");
 let earningsEl = document.getElementsByName("earning"); //array containing all the earning values
+
+function unhideElements(hiddenEle) {
+  let n = hiddenEle.length;
+  for (let i = 0; i < n; i++) {
+    hiddenEle[i].style.display = "block";
+  }
+}
+
 function calculate() {
+  outputDataEl.style.display = "block";
+  let hiddenEle = document.getElementsByClassName("hide-initial");
+  unhideElements(hiddenEle);
+  document.getElementById("welcome-msg").style.display = "none";
+
   let stockName = stockNameEl.value;
   let shares = sharesEl.value;
   let currPrice = currPriceEl.value;
@@ -27,16 +41,33 @@ function calculate() {
     year,
     bondRate
   );
-  let discountPerc = getDiscountPerc(intrinsicVal, currPrice);
 
-  headingEl.textContent = "STOCK: " + stockName;
-  cagrEl.textContent = "CAGR (last 5 years): " + (100*cagr).toFixed(2) + "%";
-  intrinsicValEl.textContent = "Intrinsic value (after 10 years): Rs." + (intrinsicVal).toFixed(2);
-  discountPercEl.textContent = "Discount (%):" + (100*discountPerc).toFixed(2) + "%";
+  headingEl.textContent = stockName;
+  cagrEl.textContent = "CAGR (last 5 years): " + (100 * cagr).toFixed(2) + "%";
+  intrinsicValEl.textContent =
+    "Value (after 10 years): ₹" + intrinsicVal.toFixed(2);
+
+  let tagEl = document.getElementById("tag");
+  tagEl.style.opacity = "1";
+
+  let discountPerc = getDiscountPerc(intrinsicVal, currPrice);
+  if (discountPerc < 0) {
+    tagEl.textContent = "OVERPRICED";
+    tagEl.style.backgroundColor = "#FF0033";
+    tagEl.style.color = "white";
+    discountPercEl.textContent =
+      "Surge: " + Math.abs(100 * discountPerc).toFixed(2) + "%";
+  } else {
+    tagEl.textContent = "UNDERPRICED";
+    tagEl.style.backgroundColor = "#00ff66";
+    tagEl.style.color = "black";
+    discountPercEl.textContent =
+      "Discount: " + Math.abs(100 * discountPerc).toFixed(2) + "%";
+  }
 }
 
 function calculateCAGR(arr) {
-  let res = Math.pow((arr[arr.length - 1] / arr[0]), (1 / arr.length)) - 1;
+  let res = Math.pow(arr[arr.length - 1] / arr[0], 1 / arr.length) - 1;
   return res;
 }
 

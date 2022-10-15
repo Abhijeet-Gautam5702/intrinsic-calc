@@ -34,7 +34,8 @@
         </label>
         <br />
         <label for="earnings">
-          EBITDA of last 5 years <br> (ascending order) <br />
+          EBITDA of last 5 years <br />
+          (ascending order) <br />
           <input type="tel" name="earning" value="1" /><br />
           <input type="tel" name="earning" value="2" /><br />
           <input type="tel" name="earning" value="3" /><br />
@@ -45,10 +46,40 @@
         <button id="submit-data" onclick="calculate()">Submit</button>
       </section>
       <section id="output">
-        <h1 id="heading"></h1>
-        <p id="CAGR"></p>
-        <p id="intrinsic-val"></p>
-        <p id="discount-perc"></p>
+        <div id="description">
+          <div id="img-container">
+            <img
+              id="buffett-img"
+              src="images/buffett.png"
+              alt="Photo of Warren Buffet"
+            />
+          </div>
+          <p id="desc-content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+            doloribus excepturi aut eos a, unde culpa quas fugit commodi
+            adipisci quos. Minima asperiores molestiae ea illo maiores fuga
+            doloremque nulla. Lorem ipsum dolor, sit amet consectetur
+            adipisicing elit. Deleniti sequi praesentium quam eveniet optio
+            rerum excepturi neque, quos, quia quisquam at accusamus quasi
+            voluptates. Dolor tenetur modi eius eos error.
+          </p>
+        </div>
+        <div id="output-data-box">
+          <div id="output-data">
+            <h2 id="welcome-msg">
+              Welcome! Submit the data and the result will show up here
+            </h2>
+            <span id="tag" class="hide-initial"></span>
+            <h1 id="heading" class="hide-initial"></h1>
+            <p id="CAGR" class="hide-initial"></p>
+            <p id="intrinsic-val" class="hide-initial"></p>
+            <p id="discount-perc" class="hide-initial"></p>
+          </div>
+          <div id="more-btn-box">
+            <button id="save-data">SAVE DATA</button>
+            <button id="new-input">NEW INPUT</button>
+          </div>
+        </div>
       </section>
     </main>
 
